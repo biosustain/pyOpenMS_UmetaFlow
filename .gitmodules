@@ -1,0 +1,3 @@
+[submodule "pymetabo"]
+	path = pymetabo
+	url = https://github.com/axelwalter/pymetabo
