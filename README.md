@@ -62,7 +62,7 @@ For installation details and further documentation, see: [pyOpenMS documentation
 
 #### For Linux only !
 
-Install mono with sudo (https://www.mono-project.com/download/stable/#download-lin):
+Install [mono](https://www.mono-project.com/download/stable/#download-lin) with sudo:
 
     sudo apt install mono-devel
 
