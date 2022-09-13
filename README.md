@@ -6,7 +6,7 @@
 
 The pipeline consists of five interconnected steps:
 
-1) [File conversion](1_FileConversion.ipynb) (optional): Simply add your Thermo raw files in data/raw/ and they will be converted to centroid mzML files. If you have Agilent or Bruker files, skip that step (write "FALSE" for rule fileconversion in the config.yaml file - see more under "Configure workflow") and convert them independently using proteowizard (see https://proteowizard.sourceforge.io/) and add them to the data/mzML/ directory.
+1) [File conversion](1_FileConversion.ipynb) (optional): Simply add your Thermo raw files in data/raw/ and they will be converted to centroid mzML files. If you have Agilent or Bruker files, skip that step- convert them independently using proteowizard (see https://proteowizard.sourceforge.io/) and add them to the data/mzML/ directory.
 
 2) [Pre-processing](2_Preprocessing.ipynb): Converting your raw data to a table of metabolic features with a series of algorithms.
 
