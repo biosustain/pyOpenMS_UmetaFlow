@@ -4,7 +4,7 @@
 
 ## Workflow overview
 
-The pipeline consists of five interconnected steps:
+The pipeline consists of seven interconnected steps:
 
 1) [File conversion](1_FileConversion.ipynb) (optional): Simply add your Thermo raw files in data/raw/ and they will be converted to centroid mzML files. If you have Agilent or Bruker files, skip that step- convert them independently using proteowizard (see https://proteowizard.sourceforge.io/) and add them to the data/mzML/ directory.
 
