@@ -5,11 +5,9 @@ __pycache__/*
 *.raw
 *.DS_Store
 .vscode/
-data/*
 results/*
 resources/*
 !GNPSExport.ini
-!data/.gitkeep
 !emptyfile.idXML
 !resources/ThermoRawFileParser/README.md
 !README.md
@@ -29,3 +27,5 @@ pyOpenMS_old_results/*
 *.py
 *.csv
 Visualise_2.ipynb
+data/raw/*.raw
+data/mzML/*.mzML
