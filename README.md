@@ -6,7 +6,7 @@
 
 The pipeline consists of seven interconnected steps:
 
-1) [File conversion](1_FileConversion.ipynb) (optional): Simply add your Thermo raw files in data/raw/ and they will be converted to centroid mzML files. If you have Agilent or Bruker files, skip that step- convert them independently using proteowizard (see https://proteowizard.sourceforge.io/) and add them to the data/mzML/ directory.
+1) [File conversion](1_FileConversion.ipynb) (optional): Simply add your Thermo raw files in data/raw/ and they will be converted to centroid mzML files. If you have Agilent or Bruker files, skip that step - convert them independently using proteowizard (see https://proteowizard.sourceforge.io/) and add them to the data/mzML/ directory.
 
 2) [Pre-processing](2_Preprocessing.ipynb): Converting your raw data to a table of metabolic features with a series of algorithms.
 
@@ -16,7 +16,7 @@ The pipeline consists of seven interconnected steps:
 
 5) Structural and formula predictions with [SIRIUS and CSI:FingerID](5_SIRIUS_CSI.ipynb)
 
-6) [Annotations](6_Annotation.ipynb): annotate the feature tables with #1 ranked SIRIUS and CSI:FingerID predictions, as well as (optionally) with GNPS MSMS library matching annotations.
+6) [Annotations](6_Annotation.ipynb): annotate the feature tables with #1 ranked SIRIUS and CSI:FingerID predictions, spectral matches from a local MGF file, as well as (optionally) with GNPS MSMS library matching annotations.
 
 7) [Data integration](7_FBMN_SIRIUS_integration.ipynb): Integrate the #1 ranked SIRIUS and CSI:FingerID predictions to the graphml file from GNPS FBMN for visualisation. 
 
