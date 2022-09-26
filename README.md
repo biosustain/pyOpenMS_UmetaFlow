@@ -16,9 +16,9 @@ The pipeline consists of seven interconnected steps:
 
 5) Structural and formula predictions with [SIRIUS and CSI:FingerID](5_SIRIUS_CSI.ipynb)
 
-6) [Annotations](6_Annotation.ipynb): annotate the feature tables with #1 ranked SIRIUS and CSI:FingerID predictions, spectral matches from a local MGF file, as well as (optionally) with GNPS MSMS library matching annotations.
+6) [Annotations](6_Annotation.ipynb): annotate the feature tables with #1 ranked SIRIUS and CSI:FingerID predictions (MSI level 3), spectral matches from a local MGF file (MSI level 2).
 
-7) [Data integration](7_FBMN_SIRIUS_integration.ipynb): Integrate the #1 ranked SIRIUS and CSI:FingerID predictions to the graphml file from GNPS FBMN for visualisation. 
+7) [Data integration](7_FBMN_data_integration.ipynb): Integrate the #1 ranked SIRIUS and CSI:FingerID predictions to the graphml file from GNPS FBMN for visualization. Optionally, annotate the feature tables with GNPS MSMS library matching annotations (MSI level 2).
 
 ![dag](/images/UmetaFlow_graph.svg)
 
