@@ -1,6 +1,6 @@
 ### pyOpenMS_untargeted_metabolomics
 
-##### This is the progress of a pyOpenMS workflow in a Jupyter notebook for untargeted metabolomics data preprocessing and analysis tailored by [Eftychia Eva Kontou](https://github.com/eeko-kon) and [Axel Walter](https://github.com/axelwalter) using OpenMS and pyOpenMS which are python bindings to the cpp OpenMS alogithms. 
+##### This a workflow for untargeted metabolomics data preprocessing and analysis tailored in Jupyter notebooks by [Eftychia Eva Kontou](https://github.com/eeko-kon) and [Axel Walter](https://github.com/axelwalter) using pyOpenMS which are python bindings to the cpp OpenMS alogithms. 
 
 ## Workflow overview
 
@@ -37,28 +37,6 @@ Step 2: https://docs.github.com/en/github/authenticating-to-github/connecting-to
     git clone https://github.com/eeko-kon/pyOpenMS_UmetaFlow.git
 
 ### Step 2: Create a conda environment& install pyopenms
-    
-Installing pyOpenMS using [conda](https://github.com/conda) is advised:
-First, get the latest wheels:
-
-    MY_OS="Linux" # or "macOS" or "Windows" (case-sensitive)
-    wget https://nightly.link/OpenMS/OpenMS/workflows/pyopenms-wheels/nightly/${MY_OS}-wheels.zip\?status\=completed
-    mv ${MY_OS}-wheels.zip\?status=completed ${MY_OS}-wheels.zip
-    unzip *.zip
-
-Then, create a conda environment and install the wheels and other dependencies:
-
-    conda create --name pyopenms python=3.10
-    conda activate pyopenms
-    pip install *cp310*.whl
-    rm *.zip & rm *.whl
-    conda install -n pyopenms ipykernel --update-deps --force-reinstall
-    pip install pyteomics
-    pip install --upgrade nbformat
-    pip install matplotlib
-
-For installation details and further documentation, see: [pyOpenMS documentation](https://pyopenms.readthedocs.io/en/latest/).
-
 #### For Linux only !
 
 Install [mono](https://www.mono-project.com/download/stable/#download-lin) with sudo:
@@ -86,6 +64,26 @@ Follow the Next steps instructions to add Linuxbrew to your PATH and to your bas
 
     brew install wget
 
+Installing pyOpenMS using [conda](https://github.com/conda) is advised:
+First, get the latest wheels:
+
+    MY_OS="Linux" # or "macOS" or "Windows" (case-sensitive)
+    wget https://nightly.link/OpenMS/OpenMS/workflows/pyopenms-wheels/nightly/${MY_OS}-wheels.zip\?query\=completed
+    mv ${MY_OS}-wheels.zip\?query=completed ${MY_OS}-wheels.zip
+    unzip *.zip
+
+Then, create a conda environment and install the wheels and other dependencies:
+
+    conda create --name pyopenms python=3.10
+    conda activate pyopenms
+    pip install *cp310*.whl
+    rm *.zip & rm *.whl
+    conda install -n pyopenms ipykernel --update-deps --force-reinstall
+    pip install pyteomics
+    pip install --upgrade nbformat
+    pip install matplotlib
+
+For installation details and further documentation, see: [pyOpenMS documentation](https://pyopenms.readthedocs.io/en/latest/).
 ### Step 3: Retrieve files (optional) and executables (not optional)
 
 #### Get example data from zenodo (only for testing the workflow with the example dataset) or simply transfer your own data under the directory "data/raw/"
@@ -96,7 +94,11 @@ Follow the Next steps instructions to add Linuxbrew to your PATH and to your bas
 
     (cd resources/ThermoRawFileParser && wget https://github.com/compomics/ThermoRawFileParser/releases/download/v1.3.4/ThermoRawFileParser.zip && unzip ThermoRawFileParser.zip)
 
-Download the latest SIRIUS executable manually from [here](https://github.com/boecker-lab/sirius/releases) until available as a conda-forge installation. Choose the headless zipped file compatible for your operating system (linux, macOS or windows) and unzip it under the directory "resources/".
+Download the latest SIRIUS executable manually from [here](https://github.com/boecker-lab/sirius/releases) until available as a conda-forge installation. Choose the headless zipped file compatible for your operating system (linux, macOS or windows) and unzip it under the directory "resources/".  Make sure to register using your university email and password. 
+
+Tip: Make sure to download a version >5.6. Avoid SNAPSHOT versions and get the headless zipped file. Example (for linux OS:)
+    
+    (cd resources/ && wget https://github.com/boecker-lab/sirius/releases/download/v5.6.2/sirius-5.6.2-linux64-headless.zip && unzip *.zip)
 
 ### Step 5: Run all kernels and investigate the results
 
