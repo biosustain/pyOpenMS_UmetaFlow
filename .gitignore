@@ -8,6 +8,7 @@ __pycache__/*
 results/*
 resources/*
 !GNPSExport.ini
+!data/.gitkeep
 !emptyfile.idXML
 !resources/ThermoRawFileParser/README.md
 !README.md
@@ -22,10 +23,12 @@ QExactive/*
 6_DataAnalysis_std.ipynb
 6_DataAnalysis_NBC00265.ipynb
 pyOpenMS_old_results/*
-!pymetabo/*
 *whl
 *.py
 *.csv
 Visualise_2.ipynb
 data/raw/*.raw
 data/mzML/*.mzML
+pyOpenMS_data_analysis/*
+8_Data_cleanup(data_dependent).ipynb
+9_Data_exploration(data_dependent).ipynb
