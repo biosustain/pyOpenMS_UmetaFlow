@@ -65,19 +65,12 @@ Follow the Next steps instructions to add Linuxbrew to your PATH and to your bas
     brew install wget
 
 Installing pyOpenMS using [conda](https://github.com/conda) is advised:
-First, get the latest wheels:
-
-    MY_OS="Linux" # or "macOS" or "Windows" (case-sensitive)
-    wget https://nightly.link/OpenMS/OpenMS/workflows/pyopenms-wheels/nightly/${MY_OS}-wheels.zip\?query\=completed
-    mv ${MY_OS}-wheels.zip\?query=completed ${MY_OS}-wheels.zip
-    unzip *.zip
-
-Then, create a conda environment and install the wheels and other dependencies:
+First, create a conda environment and install the wheels and other dependencies:
+Then get the latest wheels and install all dependencies:
 
     conda create --name pyopenms python=3.10
     conda activate pyopenms
-    pip install *cp310*.whl
-    rm *.zip & rm *.whl
+    pip install --index-url https://pypi.cs.uni-tuebingen.de/simple/ pyopenms-nightly
     conda install -n pyopenms ipykernel --update-deps --force-reinstall
     pip install pyteomics
     pip install --upgrade nbformat
