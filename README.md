@@ -34,7 +34,7 @@ Step 1: https://docs.github.com/en/github/authenticating-to-github/connecting-to
 Step 2: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 
-    git clone https://github.com/eeko-kon/pyOpenMS_UmetaFlow.git
+    git clone https://github.com/biosustain/pyOpenMS_UmetaFlow.git
 
 ### Step 2: Create a conda environment& install pyopenms
 #### For Linux only !
@@ -45,7 +45,7 @@ Install [mono](https://www.mono-project.com/download/stable/#download-lin) with 
 
 #### For both systems
 
-Install homebrew and wget (for **iOS** only!):
+Install homebrew and wget:
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     
@@ -77,13 +77,8 @@ Then get the latest wheels and install all dependencies:
     pip install matplotlib
 
 For installation details and further documentation, see: [pyOpenMS documentation](https://pyopenms.readthedocs.io/en/latest/).
-### Step 3: Retrieve files (optional) and executables (not optional)
 
-#### Get example data from zenodo (only for testing the workflow with the example dataset) or simply transfer your own data under the directory "data/raw/"
-
-(cd data && wget https://zenodo.org/record/6948449/files/Commercial_std_raw.zip?download=1 && unzip *.zip -d raw)
-
-#### Get the necessary executables (ThermoRawFileParser & Sirius):
+### Step 3: Install executables (ThermoRawFileParser & Sirius):
 
     (cd resources/ThermoRawFileParser && wget https://github.com/compomics/ThermoRawFileParser/releases/download/v1.3.4/ThermoRawFileParser.zip && unzip ThermoRawFileParser.zip)
 
@@ -93,12 +88,19 @@ Tip: Make sure to download a version >5.6. Avoid SNAPSHOT versions and get the h
     
     (cd resources/ && wget https://github.com/boecker-lab/sirius/releases/download/v5.6.2/sirius-5.6.2-linux64-headless.zip && unzip *.zip)
 
+#### Step 4 (optional): Get example data from zenodo 
+
+    (cd data && wget https://zenodo.org/record/6948449/files/Commercial_std_raw.zip?download=1 && unzip *.zip -d raw)
+
+The data can be used for testing the workflow. Otherwise the user can simply transfer their own data under the directory "data/raw/" or "data/mzML/".
+
 ### Step 5: Run all kernels and investigate the results
 
 All the results are in a tsv format and can be opened simply with excel or using pandas dataframes. 
 
-
 ### Citations
+
+Kontou, E.E., Walter, A., Alka, O. et al. UmetaFlow: an untargeted metabolomics workflow for high-throughput data processing and analysis. J Cheminform 15, 52 (2023). https://doi.org/10.1186/s13321-023-00724-w
 
 Pfeuffer J, Sachsenberg T, Alka O, et al. OpenMS – A platform for reproducible analysis of mass spectrometry data. J Biotechnol. 2017;261:142-148. doi:10.1016/j.jbiotec.2017.05.016
 
