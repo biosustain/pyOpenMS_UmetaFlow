@@ -64,7 +64,7 @@ Step 2: https://docs.github.com/en/github/authenticating-to-github/connecting-to
 >>
 >>        conda create --name pyopenms python=3.10
 >>        conda activate pyopenms
->>        pip install --index-url https://pypi.cs.uni-tuebingen.de/simple/ pyopenms-nightly
+>>        pip install pyopenms==3.1.0
 >>        conda install -n pyopenms ipykernel --update-deps --force-reinstall
 >>        pip install pyteomics
 >>        pip install --upgrade nbformat
