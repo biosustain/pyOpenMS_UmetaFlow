@@ -64,11 +64,13 @@ Step 2: https://docs.github.com/en/github/authenticating-to-github/connecting-to
 >>
 >>        conda create --name pyopenms python=3.10
 >>        conda activate pyopenms
->>        pip install --index-url https://pypi.cs.uni-tuebingen.de/simple/ pyopenms-nightly
+>>        pip install pyopenms==3.1
+>>        pip install -U numpy==1.26.4
 >>        conda install -n pyopenms ipykernel --update-deps --force-reinstall
 >>        pip install pyteomics
 >>        pip install --upgrade nbformat
 >>        pip install matplotlib
+>>        conda install sirius-ms==5.8.6
 >>
 >>For installation details and further documentation, see [pyOpenMS documentation](https://pyopenms.readthedocs.io/en/latest/).
 >>
@@ -77,17 +79,17 @@ Step 2: https://docs.github.com/en/github/authenticating-to-github/connecting-to
 >>
 >>        (cd resources/ThermoRawFileParser && wget https://github.com/compomics/ThermoRawFileParser/releases/download/v1.3.4/ThermoRawFileParser.zip && unzip ThermoRawFileParser.zip)
 >>
->>**SIRIUS**
+>>**SIRIUS (if not already installed via conda)**
 >>
->>Download the [latest](https://github.com/boecker-lab/sirius/releases) SIRIUS executable. Choose the headless zipped file compatible with your operating system (linux, macOS or windows) and unzip it under the directory `resources/`.  Make sure to register using your university email and password. 
+>>Download the [SIRIUS 5.8.6](https://github.com/sirius-ms/sirius/releases/tag/v5.8.6) executable. Choose the zipped file compatible with your operating system (linux, macOS or windows) and unzip it under the directory `resources/`.  Make sure to register using your university email and password.
 >>
 >>1. Specify the operating system
 >>
 >>        MY_OS="linux64" # or "osx64" for macOS or "win64" for windows 
 >>
->>2. Get the SIRIUS executable
+>>2. Get the SIRIUS executable and unpack to resources
 >>
->>        (cd resources && curl -s https://api.github.com/repos/boecker-lab/sirius/releases/latest | tr -d '"' | grep "browser_download_url.*${MY_OS}.zip$"| cut -d : -f 2,3 |  wget -i- && unzip *.zip)
+>>        cd resources && curl -L -o sirius.zip https://github.com/sirius-ms/sirius/releases/download/v5.8.6/sirius-5.8.6-${MY_OS}.zip && unzip sirius.zip
 >>
 >>#### <span style="color: red"> **Tip:** </span> If you get the executable manually, make sure to download a version >5.6. Avoid SNAPSHOT versions and get the headless zipped file.
 >>
