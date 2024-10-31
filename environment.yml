@@ -13,4 +13,6 @@ dependencies:
     - numpy==1.26.4 # pyopenms needs numpy<=1.26.4
     - pyopenms_viz>=0.1.2 # for visualization, not strictly necessary
     - pyteomics
+    - plotly
+    - jupyter
     - wget

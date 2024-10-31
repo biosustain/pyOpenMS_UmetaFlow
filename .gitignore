@@ -32,3 +32,4 @@ data/mzML/*.mzML
 pyOpenMS_data_analysis/*
 8_Data_cleanup(data_dependent).ipynb
 9_Data_exploration(data_dependent).ipynb
+iframe_figures
