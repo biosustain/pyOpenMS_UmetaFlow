@@ -25,82 +25,36 @@ The pipeline consists of seven interconnected steps:
 ## Usage
 ### Step 1: Clone the workflow
 
-[Clone](https://help.github.com/en/articles/cloning-a-repository) this repository to your local system, into the place where you want to perform the data analysis.
-
-(Make sure to have the right access / SSH Key. If **not**, follow the steps:
-Step 1: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-
-Step 2: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
-
     git clone https://github.com/biosustain/pyOpenMS_UmetaFlow.git
 
-### Step 2: Install all dependencies
-> **Mono**, **homebrew** and **wget** dependencies:
->>#### <span style="color: green"> **For Linux only(!)** </span>
->>Install [mono](https://www.mono-project.com/download/stable/#download-lin) with sudo:
->>
->>      sudo apt install mono-devel
->>
->>#### <span style="color: green"> **For both systems** </span>
->>Install homebrew and wget:
->>
->>      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
->>Press enter (RETURN) to continue
->>
->>#### <span style="color: green"> **For Linux only(!)** </span>
->>Follow the Next steps instructions to add Linuxbrew to your PATH and to your bash shell profile script, either ~/.profile on Debian/Ubuntu or ~/.bash_profile on CentOS/Fedora/RedHat (https://github.com/Linuxbrew/brew).
->>
->>      test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
->>      test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
->>      test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
->>      echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
->>#### <span style="color: green"> **For both systems** </span>
->>      brew install wget
-> **pyOpenMS** and other libraries:
->>
->>Installing pyOpenMS using [conda](https://github.com/conda) is advised:
->>First, create a conda environment and install the wheels and other dependencies. Then get the latest wheels and install all dependencies:
->>
->>        conda create --name pyopenms python=3.10
->>        conda activate pyopenms
->>        pip install --index-url https://pypi.cs.uni-tuebingen.de/simple/ pyopenms-nightly
->>        conda install -n pyopenms ipykernel --update-deps --force-reinstall
->>        pip install pyteomics
->>        pip install --upgrade nbformat
->>        pip install matplotlib
->>
->>For installation details and further documentation, see [pyOpenMS documentation](https://pyopenms.readthedocs.io/en/latest/).
->>
-### Step 3: Install executables (ThermoRawFileParser & SIRIUS):
->>**ThermoRawFileParser** 
->>
->>        (cd resources/ThermoRawFileParser && wget https://github.com/compomics/ThermoRawFileParser/releases/download/v1.3.4/ThermoRawFileParser.zip && unzip ThermoRawFileParser.zip)
->>
->>**SIRIUS**
->>
->>Download the [latest](https://github.com/boecker-lab/sirius/releases) SIRIUS executable. Choose the headless zipped file compatible with your operating system (linux, macOS or windows) and unzip it under the directory `resources/`.  Make sure to register using your university email and password. 
->>
->>1. Specify the operating system
->>
->>        MY_OS="linux64" # or "osx64" for macOS or "win64" for windows 
->>
->>2. Get the SIRIUS executable
->>
->>        (cd resources && curl -s https://api.github.com/repos/boecker-lab/sirius/releases/latest | tr -d '"' | grep "browser_download_url.*${MY_OS}.zip$"| cut -d : -f 2,3 |  wget -i- && unzip *.zip)
->>
->>#### <span style="color: red"> **Tip:** </span> If you get the executable manually, make sure to download a version >5.6. Avoid SNAPSHOT versions and get the headless zipped file.
->>
-### Step 4 (optional): Get example data from zenodo 
->>
->>        (cd data && wget https://zenodo.org/record/6948449/files/Commercial_std_raw.zip?download=1 && unzip *.zip -d raw)
->>
->>The data can be used for testing the workflow. Otherwise, the user can simply transfer their own data under the directory `data/raw/` or `data/mzML/`.
->>
-### Step 5: Run all kernels and investigate the results
->>
->>All the results are in a .TSV format and can be opened simply with excel or using pandas dataframes. 
->>
+### Step 2: Install all dependencies in a conda environment
+
+It is recommended to install all dependencies in a conda environment via the provided `environment.yml` file:
+
+    cd pyOpenMS_UmetaFlow
+    conda env create -f environment.yml
+    conda activate umetaflow-pyopenms
+
+### Step 3 (optional): Get example data from zenodo 
+
+This data can be used for testing the workflow:
+
+    wget https://zenodo.org/record/6948449/files/Commercial_std_raw.zip -O Commercial_std_raw.zip
+    unzip Commercial_std_raw.zip -d Commercial_std_raw
+    mv Commercial_std_raw/*.* data/raw/
+    rm Commercial_std_raw.zip
+    rm -rf Commercial_std_raw
+
+Otherwise, the user can simply transfer their own data under the directory `data/raw/` or `data/mzML/`.
+
+### Step 4: Run all notebooks and investigate the results
+
+Each processing step is implemented in a separate notebook.
+
+    jupyter notebook
+
+All the results are in a .TSV format and can be opened simply with excel or using pandas dataframes.
+
 ### Citations
 
 - Kontou, E.E., Walter, A., Alka, O. et al. UmetaFlow: an untargeted metabolomics workflow for high-throughput data processing and analysis. J Cheminform 15, 52 (2023). https://doi.org/10.1186/s13321-023-00724-w
